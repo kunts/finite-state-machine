@@ -61,6 +61,20 @@ this.states = config.states;
      * @param event
      */
     trigger(event) {
+      for(var key in this.states){
+
+for(var key1 in this.states[key]){
+
+for(var key2 in this.states[key][key1]){
+  if(key2 == event){
+    this.initial = this.states[key][key1][key2];
+  }
+}
+}
+
+
+
+}
 
     }
 
