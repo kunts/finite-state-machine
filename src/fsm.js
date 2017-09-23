@@ -46,8 +46,8 @@ this.states = config.states;
 }
 
           if (flag == false){
-            throw new Error()
-          };
+            throw new Error();
+          }
       }
       catch(error) {
 
@@ -61,21 +61,31 @@ this.states = config.states;
      * @param event
      */
     trigger(event) {
-      for(var key in this.states){
+      try {
+        var flag = false;
 
-for(var key1 in this.states[key]){
+      for(var key in this.states[this.initial]){
 
-for(var key2 in this.states[key][key1]){
-  if(key2 == event){
-    this.initial = this.states[key][key1][key2];
+  for(var key1 in this.states[this.initial][key]){
+        //  console.log(key1)
+  if(key1 == event){
+    this.initial = this.states[this.initial][key][key1];
+    flag = true;
   }
 }
+
+
+
+
 }
-
-
-
+if (flag == false){
+  throw new Error();
 }
+}
+catch(error) {
 
+throw error;
+}
     }
 
     /**
