@@ -6,14 +6,15 @@ class FSM {
     constructor(config) {
         try {
             if (config!=null){
-            this.config = config;
+this.initial = config.initial;
+this.states = config.states;
             return this;
             }
-            else{throw error}
-            ;
+            else{throw new Error()};
         }
         catch(error) {
-            alert("Config wasn't taken" + error);
+
+            throw error;
         }
     }
 
@@ -23,6 +24,7 @@ class FSM {
      */
     getState() {
 
+  return this.initial;
     }
 
     /**
@@ -30,9 +32,30 @@ class FSM {
      * @param state
      */
     changeState(state) {
+      try {
 
-    }
+        var flag = false;
+        for(var key in this.states){
 
+            if (key == state){
+            this.initial = state;
+            flag = true;
+
+        }
+
+}
+
+          if (flag == false){
+            throw new Error()
+          };
+      }
+      catch(error) {
+
+          throw error;
+      }
+
+
+}
     /**
      * Changes state according to event transition rules.
      * @param event
