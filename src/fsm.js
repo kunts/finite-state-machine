@@ -18,7 +18,6 @@ class FSM {
             throw error;
         }
     }
-
     /**
      * Returns active state.
      * @returns {String}
@@ -26,7 +25,6 @@ class FSM {
     getState() {
       return this.initial;
     }
-
     /**
      * Goes to specified state.
      * @param state
@@ -45,7 +43,6 @@ class FSM {
           if (flag == false){
             throw new Error();
           }
-
       }
       catch(error) {
           throw error;
@@ -76,14 +73,12 @@ class FSM {
           throw error;
       }
     }
-
     /**
      * Resets FSM state to initial.
      */
     reset() {
        return this.initial = "normal";
     }
-
     /**
      * Returns an array of states for which there are specified event transition rules.
      * Returns all states if argument is undefined.
@@ -123,7 +118,6 @@ class FSM {
         return true;
       }
     }
-
     /**
      * Goes redo to state.
      * Returns false if redo is not available.
@@ -138,7 +132,6 @@ class FSM {
         return true;
       }
     }
-
     /**
      * Clears transition history
      */
@@ -147,7 +140,5 @@ class FSM {
       this.previous = [];
     }
 }
-
 module.exports = FSM;
-
 /** @Created by Uladzimir Halushka **/
